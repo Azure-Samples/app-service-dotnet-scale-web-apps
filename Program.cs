@@ -144,13 +144,13 @@ namespace ManageWebAppWithTrafficManager
                     Console.WriteLine("Created web app " + app3.Name);
                     Utilities.Print(app3);
 
-                    Console.WriteLine("Creating another web app " + app3Name + "...");
+                    Console.WriteLine("Creating another web app " + app4Name + "...");
                     var app4 = CreateWebApp(azure, domain, app4Name, plan1);
 
                     Console.WriteLine("Created web app " + app4.Name);
                     Utilities.Print(app4);
 
-                    Console.WriteLine("Creating another web app " + app3Name + "...");
+                    Console.WriteLine("Creating another web app " + app5Name + "...");
                     var app5 = CreateWebApp(azure, domain, app5Name, plan1);
 
                     Console.WriteLine("Created web app " + app5.Name);
