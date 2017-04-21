@@ -4,7 +4,7 @@ platforms: .Net
 author: jianghaolu
 ---
 
-#Getting Started with App - Manage Web App With Traffic Manager - in .Net #
+# Getting Started with App - Manage Web App With Traffic Manager - in .Net #
 
       Azure App Service sample for managing web apps.
        - Create a domain

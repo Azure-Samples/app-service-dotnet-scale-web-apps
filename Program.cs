@@ -3,9 +3,9 @@
 
 using Microsoft.Azure.Management.AppService.Fluent;
 using Microsoft.Azure.Management.Fluent;
-using Microsoft.Azure.Management.Resource.Fluent;
-using Microsoft.Azure.Management.Resource.Fluent.Authentication;
-using Microsoft.Azure.Management.Resource.Fluent.Core;
+using Microsoft.Azure.Management.ResourceManager.Fluent;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Authentication;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
 using Microsoft.Azure.Management.Samples.Common;
 using Microsoft.Azure.Management.TrafficManager.Fluent;
 using System;
@@ -83,7 +83,7 @@ namespace ManageWebAppWithTrafficManager
 
                 Utilities.Log("Creating a self-signed certificate " + pfxPath + "...");
 
-                CreateCertificate(domainName, pfxPath, CERT_PASSWORD);
+                Utilities.CreateCertificate(domainName, pfxPath, CERT_PASSWORD);
 
                 //============================================================
                 // Create 3 app service plans in 3 regions
@@ -162,12 +162,6 @@ namespace ManageWebAppWithTrafficManager
                         .DefineAzureTargetEndpoint("endpoint3")
                             .ToResourceId(app3.Id)
                             .Attach()
-                        .DefineAzureTargetEndpoint("endpoint4")
-                            .ToResourceId(app4.Id)
-                            .Attach()
-                        .DefineAzureTargetEndpoint("endpoint5")
-                            .ToResourceId(app5.Id)
-                            .Attach()
                         .Create();
 
                 Utilities.Log("Created traffic manager " + trafficManager.Name);
@@ -231,7 +225,7 @@ namespace ManageWebAppWithTrafficManager
 
                 var azure = Azure
                     .Configure()
-                    .WithLogLevel(HttpLoggingDelegatingHandler.Level.BASIC)
+                    .WithLogLevel(HttpLoggingDelegatingHandler.Level.Basic)
                     .Authenticate(credentials)
                     .WithDefaultSubscription();
 
@@ -252,19 +246,20 @@ namespace ManageWebAppWithTrafficManager
                     .Define(name)
                     .WithRegion(region)
                     .WithExistingResourceGroup(rgName)
-                    .WithPricingTier(AppServicePricingTier.BasicB1)
+                    .WithPricingTier(PricingTier.BasicB1)
+                    .WithOperatingSystem(OperatingSystem.Windows)
                     .Create();
         }
 
         private static IWebApp CreateWebApp(IAzure azure, IAppServiceDomain domain, string rgName, string name, IAppServicePlan plan)
         {
             return azure.WebApps.Define(name)
+                    .WithExistingWindowsPlan(plan)
                     .WithExistingResourceGroup(rgName)
-                    .WithExistingAppServicePlan(plan)
                     .WithManagedHostnameBindings(domain, name)
                     .DefineSslBinding()
                         .ForHostname(name + "." + domain.Name)
-                        .WithPfxCertificateToUpload("Asset/" + pfxPath, CERT_PASSWORD)
+                        .WithPfxCertificateToUpload(Path.Combine(Utilities.ProjectPath, "Asset", pfxPath), CERT_PASSWORD)
                         .WithSniBasedSsl()
                         .Attach()
                     .DefineSourceControl()
@@ -272,14 +267,6 @@ namespace ManageWebAppWithTrafficManager
                         .WithBranch("master")
                         .Attach()
                     .Create();
-        }
-
-        private static void CreateCertificate(string domainName, string pfxPath, string password)
-        {
-            string args = string.Format(@".\createCert.ps1 -pfxFileName {0} -pfxPassword ""{1}"" -domainName ""{2}""", pfxPath, password, domainName);
-            ProcessStartInfo info = new ProcessStartInfo("powershell", args);
-            info.WorkingDirectory = "Asset";
-            Process.Start(info).WaitForExit();
         }
     }
 }
