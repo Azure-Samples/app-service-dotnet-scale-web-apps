@@ -1,0 +1,2 @@
+C:\Sources\dotnet-samples\app-service-dotnet-scale-web-apps\bin\Debug\netstandard1.6\ManageWebAppWithTrafficManager.deps.json
+C:\Sources\dotnet-samples\app-service-dotnet-scale-web-apps\obj\Debug\netstandard1.6\ManageWebAppWithTrafficManager.csproj.CoreCompileInputs.cache

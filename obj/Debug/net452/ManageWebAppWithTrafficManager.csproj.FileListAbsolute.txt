@@ -1,0 +1,4 @@
+C:\Sources\dotnet-samples\app-service-dotnet-scale-web-apps\bin\Debug\net452\ManageWebAppWithTrafficManager.runtimeconfig.json
+C:\Sources\dotnet-samples\app-service-dotnet-scale-web-apps\bin\Debug\net452\ManageWebAppWithTrafficManager.runtimeconfig.dev.json
+C:\Sources\dotnet-samples\app-service-dotnet-scale-web-apps\obj\Debug\net452\ManageWebAppWithTrafficManager.csproj.ManageWebAppWithTrafficManager.exe.config
+C:\Sources\dotnet-samples\app-service-dotnet-scale-web-apps\obj\Debug\net452\ManageWebAppWithTrafficManager.csproj.CoreCompileInputs.cache
