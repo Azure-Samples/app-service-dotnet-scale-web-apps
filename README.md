@@ -4,20 +4,20 @@ languages:
 - csharp
 products:
 - azure
-services: App-Service
-platforms: dotnet
-author: yaohaizh
+extensions:
+- services: App-Service
+- platforms: dotnet
 ---
 
 # Getting started on scaling Web Apps in C# #
 
-      Azure App Service sample for managing web apps.
-       - Create a domain
-       - Create a self-signed certificate for the domain
-       - Create 3 app service plans in 3 different regions
-       - Create 5 web apps under the 3 plans, bound to the domain and the certificate
-       - Create a traffic manager in front of the web apps
-       - Scale up the app service plans to twice the capacity
+ Azure App Service sample for managing web apps.
+  - Create a domain
+  - Create a self-signed certificate for the domain
+  - Create 3 app service plans in 3 different regions
+  - Create 5 web apps under the 3 plans, bound to the domain and the certificate
+  - Create a traffic manager in front of the web apps
+  - Scale up the app service plans to twice the capacity
 
 
 ## Running this Sample ##
