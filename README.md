@@ -7,6 +7,7 @@ products:
 extensions:
 - services: App-Service
 - platforms: dotnet
+description: "Azure App Service sample for managing web apps."
 ---
 
 # Getting started on scaling Web Apps in C# #
