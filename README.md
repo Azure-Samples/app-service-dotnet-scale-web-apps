@@ -9,16 +9,15 @@ extensions:
   platforms: dotnet
 ---
 
-# Getting started on managing Functions with custom domains using C# #
+# Getting started on scaling Web Apps in C# #
 
- Azure App Service sample for managing function apps.
-  - app service plan, function app
-    - Create 2 function apps under the same new app service plan
-  - domain
-    - Create a domain
-  - certificate
-    - Upload a self-signed wildcard certificate
-    - update both function apps to use the domain and the created wildcard SSL certificate
+ Azure App Service sample for managing web apps.
+  - Create a domain
+  - Create a self-signed certificate for the domain
+  - Create 3 app service plans in 3 different regions
+  - Create 5 web apps under the 3 plans, bound to the domain and the certificate
+  - Create a traffic manager in front of the web apps
+  - Scale up the app service plans to twice the capacity
 
 
 ## Running this Sample ##
@@ -27,9 +26,9 @@ To run this sample:
 
 Set the environment variable `CLIENT_ID`,`CLIENT_SECRET`,`TENANT_ID`,`SUBSCRIPTION_ID` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-libraries-for-net/blob/master/AUTH.md).
 
-    git clone https://github.com/Azure-Samples/app-service-dotnet-manage-functions-with-custom-domains.git
+    git clone https://github.com/Azure-Samples/app-service-dotnet-scale-web-apps.git
 
-    cd app-service-dotnet-manage-functions-with-custom-domains
+    cd app-service-dotnet-scale-web-apps
 
     dotnet build
 

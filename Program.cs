@@ -199,7 +199,7 @@ namespace ManageWebAppWithTrafficManager
 
                 Utilities.Log("Scaling up app service plan " + plan3Name + "...");
 
-                await plan1.UpdateAsync(new AppServicePlanPatch()
+                await plan3.UpdateAsync(new AppServicePlanPatch()
                 {
                     TargetWorkerCount = plan1.Data.TargetWorkerCount * 2
                 });
