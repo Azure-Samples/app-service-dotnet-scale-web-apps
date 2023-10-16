@@ -32,4 +32,8 @@
 		<PackageReference Include="Azure.ResourceManager.TrafficManager" Version="1.1.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Asset\" />
+	</ItemGroup>
+
 </Project>
