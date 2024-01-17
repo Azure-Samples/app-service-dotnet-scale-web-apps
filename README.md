@@ -24,7 +24,7 @@ extensions:
 
 To run this sample:
 
-Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-libraries-for-net/blob/master/AUTH.md).
+Set the environment variable `CLIENT_ID`,`CLIENT_SECRET`,`TENANT_ID`,`SUBSCRIPTION_ID` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-libraries-for-net/blob/master/AUTH.md).
 
     git clone https://github.com/Azure-Samples/app-service-dotnet-scale-web-apps.git
 
@@ -32,11 +32,11 @@ Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an aut
 
     dotnet build
 
-    bin\Debug\net452\ManageWebAppWithTrafficManager.exe
+    bin\Debug\net452\ManageFunctionAppWithDomainSsl.exe
 
 ## More information ##
 
-[Azure Management Libraries for C#](https://github.com/Azure/azure-sdk-for-net/tree/Fluent)
+[Azure Management Libraries for C#](https://github.com/Azure/azure-sdk-for-net/)
 [Azure .Net Developer Center](https://azure.microsoft.com/en-us/develop/net/)
 If you don't have a Microsoft Azure subscription you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212)
 
